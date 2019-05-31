@@ -15,13 +15,14 @@ Bonus: Can you do this in one pass?
 
 using namespace std;
 
-bool solution(int k, vector<int> vec) {
+// O(n) solution (single pass)
+bool solution(int k, vector<int> v) {
     unordered_set<int> seen;
-    for(int i = 0; i < vec.size(); i++) {
-        if(seen.find(k - vec[i]) != seen.end()) {
+    for(int i = 0; i < v.size(); i++) {
+        if(seen.find(k - v[i]) != seen.end()) {
             return true;
         }
-        seen.insert(vec[i]);
+        seen.insert(v[i]);
     }
     return false;
 }
@@ -38,15 +39,16 @@ int main() {
     int k;
     cin >> k;
     cin.ignore();
-    vector<int> vec;
+    vector<int> v;
     string arrayStr;
     getline(cin, arrayStr);
     stringstream ss(arrayStr);
     int temp;
     while(!ss.eof()) {
         ss >> temp;
-        vec.push_back(temp);
+        v.push_back(temp);
     }
-    cout << (solution(k, vec) ? "TRUE" : "FALSE") << endl;
+
+    cout << (solution(k, v) ? "TRUE" : "FALSE") << endl;
     return 0;
 }
