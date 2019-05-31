@@ -1,2 +1,5 @@
 # Don't track (IDE stuff)
-.vscode/
+*
+!solutions/
+!*.cpp
+!*.md

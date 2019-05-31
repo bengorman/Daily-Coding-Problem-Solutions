@@ -9,13 +9,44 @@ Bonus: Can you do this in one pass?
 */
 
 #include <iostream>
+#include <sstream>
 #include <vector>
+#include <unordered_set>
 
 using namespace std;
 
+bool solution(int k, vector<int> vec) {
+    unordered_set<int> seen;
+    for(int i = 0; i < vec.size(); i++) {
+        if(seen.find(k - vec[i]) != seen.end()) {
+            return true;
+        }
+        seen.insert(vec[i]);
+    }
+    return false;
+}
+
+/*
+taking in arguments in the form:
+
+k
+a0, a1, a2, ..., an
+
+where ai is the ith element in the list and n is the length of the list
+*/
 int main() {
-    vector<int> arr;
+    int k;
+    cin >> k;
+    cin.ignore();
+    vector<int> vec;
     string arrayStr;
     getline(cin, arrayStr);
+    stringstream ss(arrayStr);
+    int temp;
+    while(!ss.eof()) {
+        ss >> temp;
+        vec.push_back(temp);
+    }
+    cout << (solution(k, vec) ? "TRUE" : "FALSE") << endl;
     return 0;
 }
