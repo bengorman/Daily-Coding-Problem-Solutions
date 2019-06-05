@@ -5,3 +5,4 @@
 * [#3 Tree Serialization](solutions/tree-serialization.cpp)
 * [#4 First Missing Positive](solutions/first-missing-positive.cpp)
 * [#5 Pair Construction](solutions/pair-construction.cpp)
+* [#6 XOR Linked List](solutions/xor-linked-list.cpp)

@@ -29,8 +29,7 @@ public:
 };
 
 XORLinkedList::XORLinkedList() {
-    front = 0x0;
-    back = 0x0;
+    front = nullptr;
 }
 
 void XORLinkedList::add(int val) {
@@ -41,16 +40,19 @@ void XORLinkedList::add(int val) {
 
     // iterate to end position
     Node* current = front;
+    // the front node has no prev, thus both == next (because both == 0 ^ next == next)
     Node* next = current->both;
     Node* prev;
     while(next != nullptr) {
         prev = current;
         current = next;
+        // casting to int required for bitwise XOR operation
         next = (Node*)((uintptr_t)prev ^ (uintptr_t)current->both);
     }
 
-    // insert node, updating prev node's both
+    // newNode has no next, so both == prev (current)
     newNode->both = current;
+    // add newNode to list by updating current's both pointer by XORing with newNode
     current->both = (Node*)((uintptr_t)current->both ^ (uintptr_t)newNode);
 }
 
@@ -59,10 +61,15 @@ Node* XORLinkedList::get(int index) {
     Node* next = current->both;
     Node* prev;
     for(int i = 0; i < index; i++) {
+        if(next == 0x0) {
+            cout << "ERROR: Index out of bounds" << endl;
+            return;
+        }
         prev = current;
         current = next;
         next = (Node*)((uintptr_t)prev ^ (uintptr_t)current->both);
     }
+    return current;
 }
 
 int main() {
@@ -70,6 +77,11 @@ int main() {
     xll.add(2);
     xll.add(4);
     xll.add(6);
-    cout << xll.get(1) << endl; //get second element
+    xll.add(8);
+    xll.add(10);
+    for(int i = 0; i < 6; i++) {
+        Node* myNode = xll.get(i);
+        cout << myNode->val << endl;
+    }
     return 0;
 }
