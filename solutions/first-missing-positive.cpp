@@ -19,7 +19,7 @@ You can modify the input array in-place.
 
 using namespace std;
 
-
+// O(n) solution
 int solution(vector<int> v) {
     for(int i = 0; i < v.size(); i++) {
         // flipping current element with element at index {element} (-1 to start at 0)
