@@ -1,5 +1,6 @@
 # Don't track (IDE stuff)
 *
 !solutions/
+!WIP/
 !*.cpp
 !*.md
