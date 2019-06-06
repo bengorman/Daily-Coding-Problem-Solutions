@@ -7,3 +7,4 @@
 * [#5 Pair Construction](solutions/pair-construction.cpp)
 * [#6 XOR Linked List](solutions/xor-linked-list.cpp)
 * [#7 Decode Combinations](solutions/decode-combinations.cpp)
+* [#8 Unival Subtrees](solutions/unival-subtrees.cpp)
