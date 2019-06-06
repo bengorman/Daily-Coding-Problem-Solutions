@@ -76,7 +76,7 @@ int decodeCombinations(string numbers) {
             overlap++;
             i++;
         }
-        combinations *= fibonacci(overlap + 1); //mul
+        combinations *= fibonacci(overlap + 1);
     }
     return combinations;
 }
