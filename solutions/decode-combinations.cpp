@@ -51,7 +51,7 @@ The 125 overlap contributes fib(3+1)=3 and the 23 overlap contributes fib(2+1)=2
 We multiply these individual combinations to find the total number of combinations to get 6.
 */
 
-// Binet's formula - O(logn) time to find the power
+// Binet's formula - O(~1) time to find the power/sqrt on x86 architecture
 long fibonacci(int n) {
     double phi = (1 + sqrt(5)) / 2;
     return round(pow(phi, n) / sqrt(5));

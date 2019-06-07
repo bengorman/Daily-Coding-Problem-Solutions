@@ -39,8 +39,7 @@ To determine what Nodes are roots of unival subtrees, I check:
 (null nodes also return true for recursion purposes)
 
 I'm  also tracking nodes I've already called the function on with a map. This way every time the
-function is called it doesn't have to recurse all the way down the tree. Now each node will have
-this function called on it at most twice.
+function is called it doesn't have to recurse all the way down the tree.
 */
 unordered_map<Node*, bool> seen;
 

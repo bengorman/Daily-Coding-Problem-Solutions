@@ -8,3 +8,5 @@
 * [#6 XOR Linked List](solutions/xor-linked-list.cpp)
 * [#7 Decode Combinations](solutions/decode-combinations.cpp)
 * [#8 Unival Subtrees](solutions/unival-subtrees.cpp)
+
+* [#10 Job Scheduler](solutions/job-scheduler.cpp)
