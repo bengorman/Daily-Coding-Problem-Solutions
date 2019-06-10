@@ -27,12 +27,23 @@ struct Node {
     Node(char _val) : val(_val) {}
 };
 
+/*
+O(n) serialize function
+
+Serialize top-down. ie root, root->left, root->right, root->left->left, etc.
+
+I decided to go with this method because it is easily reversible. The deserialize function moves
+top-down as well, and therefore does not need to know the depth of the tree (a pre-, post-, or
+in-order traversal would need to know depth to know which nodes are leaves and when to move back
+up the tree).
+*/ 
 vector<char> serialize(Node* root) {
     vector<char> v;
     queue<Node*> q;
     q.push(root);
     while(!q.empty()) {
         if(q.front() == nullptr) {
+            // empty spaces in the tree are tracked with underscores
             v.push_back('_');
             q.pop();
             continue;
@@ -50,21 +61,22 @@ Node* deserialize(vector<char> v) {
     int i = 0;
     Node* root = new Node(v[i++]);
     q.push(root);
+    Node* newNode;
     while(!q.empty()) {
-        Node* newLeft = nullptr;
+        newNode = nullptr;
         if(v[i] != '_') {
-            newLeft = new Node(v[i]);
-            q.push(newLeft);
+            newNode = new Node(v[i]);
+            q.push(newNode);
         }
+        q.front()->left = newNode;
         i++;
-        Node* newRight = nullptr;
+        newNode = nullptr;
         if(v[i] != '_') {
-            newRight = new Node(v[i]);
-            q.push(newRight);
+            newNode = new Node(v[i]);
+            q.push(newNode);
         }
+        q.front()->right = newNode;
         i++;
-        q.front()->left = newLeft;
-        q.front()->right = newRight;
         q.pop();
     }
     return root;
@@ -93,7 +105,7 @@ int main() {
     root = deserialize(serialized);
     printf("%c\n", root->val);
     printf("%c %c\n", root->left->val, root->right->val);
-    printf("%c %s %c %c\n", root->left->left->val, "(E)", root->right->left->val, root->right->right->val);
+    printf("%c %s %c %c\n", root->left->left->val, "_", root->right->left->val, root->right->right->val);
 
     return 0;
 }

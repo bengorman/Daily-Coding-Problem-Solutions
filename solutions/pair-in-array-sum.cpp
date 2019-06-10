@@ -19,11 +19,14 @@ using namespace std;
 
 // O(n) solution (single pass)
 bool solution(int k, vector<int> v) {
+    // tracking elements seen so far
     unordered_set<int> seen;
     for(int i = 0; i < v.size(); i++) {
+        // if we've seen an number that can add with the current number to k, we are done
         if(seen.find(k - v[i]) != seen.end()) {
             return true;
         }
+        // otherwise, track this element
         seen.insert(v[i]);
     }
     return false;

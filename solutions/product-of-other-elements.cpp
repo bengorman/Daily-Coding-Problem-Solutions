@@ -21,11 +21,14 @@ using namespace std;
 
 // O(n) solution
 vector<int> solution(vector<int> v) {
+    // first find the product of all numbers in the list
     int product = 1;
     for(int n : v) {
         product *= n;
     }
+
     for(int i = 0; i < v.size(); i++) {
+        // answer for this index is total product divided by current element
         v[i] = product / v[i];
     }
     return v;
@@ -33,15 +36,15 @@ vector<int> solution(vector<int> v) {
 
 // O(n^2) solution without division
 vector<int> solutionWithoutDivision(vector<int> v) {
-    vector<int> soln(v.size(), 1);
+    vector<int> sol(v.size(), 1);
     for(int i = 0; i < v.size(); i++) {
         for(int m : v) {
             if(m != v[i]) {
-                soln[i] *= m;
+                sol[i] *= m;
             }
         }
     }
-    return soln;
+    return sol;
 }
 
 /*
@@ -63,7 +66,7 @@ int main() {
     }
 
     v = solution(v);                    // for alternate solution comment this line
-    // v = solutionWithoutDivision(v);     and uncomment this line
+    // v = solutionWithoutDivision(v);  // and uncomment this line
     for(int n : v) {
         printf("%d ", n);
     }

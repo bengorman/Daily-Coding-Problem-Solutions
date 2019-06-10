@@ -16,6 +16,7 @@ using namespace std;
 
 struct Node {
     int val;
+    // start with 0 so next == both for first node and prev == both for last node
     Node* both = 0x0;
     Node(int _val) : val(_val) {}
 };
@@ -23,19 +24,28 @@ struct Node {
 class XORLinkedList {
 public:
     XORLinkedList();
-    void add(int val);
+    void addWithBack(int val);
+    void addWithoutBack(int val);
     Node* get(int index);
     Node* front;
+    Node* back;
 };
 
 XORLinkedList::XORLinkedList() {
     front = nullptr;
+    back = nullptr;
 }
 
-void XORLinkedList::add(int val) {
+/*
+This solution assumes the LinkedList has no back pointer
+This means the add method must iterate to the back of the list
+*/
+void XORLinkedList::addWithoutBack(int val) {
     Node* newNode = new Node(val);
+    // if first element, set front
     if(front == nullptr) {
         front = newNode;
+        return;
     }
 
     // iterate to end position
@@ -56,14 +66,37 @@ void XORLinkedList::add(int val) {
     current->both = (Node*)((uintptr_t)current->both ^ (uintptr_t)newNode);
 }
 
+/*
+This solution assumes the LinkedList has a back pointer
+A back pointer makes it very easy to append new nodes to the end
+*/
+void XORLinkedList::addWithBack(int val) {
+    Node* newNode = new Node(val);
+    // if first element, set front and back
+    if(front == nullptr) {
+        front = newNode;
+        back = newNode;
+        return;
+    }
+    
+    // update the last node's both to include the new node
+    back->both = (Node*)((uintptr_t)back->both ^ (uintptr_t)newNode);
+    // update the new node's both to include the previous node
+    newNode->both = back;
+    // update back pointer
+    back = newNode;
+}
+
 Node* XORLinkedList::get(int index) {
+    // iterate to index
     Node* current = front;
+    // the front node has no prev, thus both == next (because both == 0 ^ next == next)
     Node* next = current->both;
     Node* prev;
     for(int i = 0; i < index; i++) {
         if(next == 0x0) {
-            cout << "ERROR: Index out of bounds" << endl;
-            return;
+            cout << "\tERROR: Index out of bounds" << endl;
+            return nullptr;
         }
         prev = current;
         current = next;
@@ -74,14 +107,22 @@ Node* XORLinkedList::get(int index) {
 
 int main() {
     XORLinkedList xll;
-    xll.add(2);
-    xll.add(4);
-    xll.add(6);
-    xll.add(8);
-    xll.add(10);
+    /* 
+    NOTE: cannot call addWithBack after addWithoutBack because addWithoutBack does not update
+    back pointer!
+    */
+    xll.addWithoutBack(2);
+    xll.addWithoutBack(4);
+    xll.addWithoutBack(6);
+    xll.addWithoutBack(8);
+    xll.addWithoutBack(10);
     for(int i = 0; i < 6; i++) {
         Node* myNode = xll.get(i);
-        cout << myNode->val << endl;
+        if(myNode != nullptr) {
+            cout << myNode->val << endl;
+        } else {
+            cout << "NULL Node" << endl;
+        }
     }
     return 0;
 }

@@ -22,8 +22,8 @@ using namespace std;
 // O(n) solution
 int solution(vector<int> v) {
     for(int i = 0; i < v.size(); i++) {
-        // flipping current element with element at index {element} (-1 to start at 0)
-        // for example, if current = 1, insert current into v[0].
+        // Flipping current element with element at index {element} (-1 to start at 0)
+        // For example, if current = 1, insert current into v[0].
         // this keeps track of contiguous numbers starting at 1.
         int temp;
         if(v[i] > 0 && v[i] <= v.size() && v[i] != v[v[i]-1]) {
@@ -33,16 +33,20 @@ int solution(vector<int> v) {
             i--;    // do this again to hit the flipped number
         }
     }
+
+    // Now the first positive numbers appear in order from the beginning
+    // Check for the first missing number
     int i;
     for(i = 0; i < v.size(); i++) {
         if(v[i] != i+1) {
-            return i+1;
+            break;
         }
     }
     return i+1;
 }
 
 // O(nlogn solution)
+// Just sort the array and count up
 int sortSolution(vector<int> v) {
     sort(v.begin(), v.end());
     int counter = 1;
