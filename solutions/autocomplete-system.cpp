@@ -102,7 +102,7 @@ vector<string> query(Node* root, string q) {
 /*
 taking in arguments in the form:
 
-s0, s1, s2, ..., sn
+s1, s2, ..., sn
 q
 
 where si is the ith string in the list, n is the length of the list, and q is the query string

@@ -11,3 +11,4 @@
 * #9 Largest Non-Adjacent Sum (Work In Progress)
 * [#10 Job Scheduler](solutions/job-scheduler.cpp)
 * [#11 Autocomplete System](solutions/autocomplete-system.cpp)
+* [#12 Staircase Steps](solutions/staircase-steps.cpp)

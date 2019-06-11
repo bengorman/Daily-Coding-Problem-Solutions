@@ -105,6 +105,11 @@ Node* XORLinkedList::get(int index) {
     return current;
 }
 
+/*
+I only made one testcase for the sake of time.
+Feel free to link against this file with your own tree generation code,
+or just change/add testcases in main.
+*/
 int main() {
     XORLinkedList xll;
     /* 

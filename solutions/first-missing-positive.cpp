@@ -65,7 +65,7 @@ int sortSolution(vector<int> v) {
 /*
 taking in arguments in the form:
 
-a0, a1, a2, ..., an
+a1, a2, ..., an
 
 where ai is the ith element in the list and n is the length of the list
 */

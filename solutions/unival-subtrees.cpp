@@ -79,6 +79,11 @@ int solution(Node* root) {
    return (isUnivalSubtree(root) ? 1 : 0) + solution(root->left) + solution(root->right);
 }
 
+/*
+I only made one testcase for the sake of time.
+Feel free to link against this file with your own tree generation code,
+or just change/add testcases in main.
+*/
 int main() {
    Node* root = new Node(0);
    root->left = new Node(1);
