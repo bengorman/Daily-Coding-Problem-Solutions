@@ -48,7 +48,7 @@ This solution has time complexity of O(n) (assuming constant number of step size
 It also uses O(n) space.
 
 I believe there is a solution that could use less space because we do not need to track every
-single number in the sequence forever. We do, however need to track back to the highest step size
+single number in the sequence forever. We do, however, need to track back to the highest step size
 (starting with the lowest).
 
 For example:

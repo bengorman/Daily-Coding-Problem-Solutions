@@ -8,7 +8,7 @@
 * [#6 XOR Linked List](solutions/xor-linked-list.cpp)
 * [#7 Decode Combinations](solutions/decode-combinations.cpp)
 * [#8 Unival Subtrees](solutions/unival-subtrees.cpp)
-* #9 Largest Non-Adjacent Sum (Work In Progress)
+* [#9 Largest Non-Adjacent Sum](solutions/largest-nonadjacent-sum.cpp)
 * [#10 Job Scheduler](solutions/job-scheduler.cpp)
 * [#11 Autocomplete System](solutions/autocomplete-system.cpp)
 * [#12 Staircase Steps](solutions/staircase-steps.cpp)
