@@ -12,3 +12,4 @@
 * [#10 Job Scheduler](solutions/job-scheduler.cpp)
 * [#11 Autocomplete System](solutions/autocomplete-system.cpp)
 * [#12 Staircase Steps](solutions/staircase-steps.cpp)
+* [#13 Longest Distinct Substring](solutions/longest-adjacent-substring.cpp)
