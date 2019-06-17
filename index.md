@@ -15,3 +15,4 @@
 * [#13 Longest Distinct Substring](solutions/longest-adjacent-substring.cpp)
 * [#14 Pi Estimation](solutions/pi-estimation.cpp)
 * [#15 Random Stream Element](solutions/random-stream-element.cpp)
+* [#16 Order Log](solutions/order-log.cpp)
