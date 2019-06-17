@@ -14,3 +14,4 @@
 * [#12 Staircase Steps](solutions/staircase-steps.cpp)
 * [#13 Longest Distinct Substring](solutions/longest-adjacent-substring.cpp)
 * [#14 Pi Estimation](solutions/pi-estimation.cpp)
+* [#15 Random Stream Element](solutions/random-stream-element.cpp)
