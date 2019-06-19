@@ -16,3 +16,4 @@
 * [#14 Pi Estimation](solutions/pi-estimation.cpp)
 * [#15 Random Stream Element](solutions/random-stream-element.cpp)
 * [#16 Order Log](solutions/order-log.cpp)
+* [#17 Longest File Path](solutions/longest-file-path.cpp)
