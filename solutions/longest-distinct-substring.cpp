@@ -24,6 +24,8 @@ When the map is full (k chars in the map) and we encounter a new char, we move t
 forward while decrmenting the front char's frequency in the map. If the frequency is zero, we
 remove the char from the map, opening up a new space for the next char.
 
+The time complexity is O(n).
+
 For example:
 s = abacaa, k = 2
 - Move back forward, adding elements to the map. Stop once the map is full and we encounter a new char
