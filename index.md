@@ -17,3 +17,6 @@
 * [#15 Random Stream Element](solutions/random-stream-element.cpp)
 * [#16 Order Log](solutions/order-log.cpp)
 * [#17 Longest File Path](solutions/longest-file-path.cpp)
+* [#18 Maximum Subarray Values](solutions/maximum-subarray-values.cpp)
+* [#19 Coloring Houes](solutions/coloring-houses.cpp)
+* [#20 Intersecting Linked Lists](solutions/intersecting-linked-lists.cpp)
